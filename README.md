@@ -1,8 +1,7 @@
 # Chrysalis Vault — Zero Matrix Lab v0.5.17
 
-A GitHub-Pages-compatible repo build for the zero-state 4D matrix simulator.
 
-This is the repo version of the smooth standalone HTML prototype, refactored so we can optimize and scale it without turning the simulator into a UI toy.
+This is the repo version of the smooth standalone HTML prototype.
 
 ## Run
 
