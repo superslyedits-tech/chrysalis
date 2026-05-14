@@ -1,0 +1,60 @@
+:root {
+  color-scheme: dark;
+  --bg: #010207;
+  --panel: rgba(4, 7, 15, 0.78);
+  --line: rgba(205, 220, 255, 0.15);
+  --text: rgba(238, 244, 255, 0.95);
+  --muted: rgba(198, 212, 236, 0.70);
+  --good: #a8ffcb;
+  --warn: #ffe5a1;
+  --bad: #ff99a8;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; background: var(--bg); cursor: default; }
+canvas.descent-armed { cursor: none; }
+#panel {
+  position: fixed; top: 14px; left: 14px;
+  width: min(500px, calc(100vw - 28px)); padding: 13px;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+  backdrop-filter: blur(14px); box-shadow: 0 22px 80px rgba(0,0,0,0.48);
+  transition: transform 150ms ease, opacity 150ms ease; user-select: none;
+}
+#panel.hidden { transform: translateX(calc(-100% - 28px)); opacity: 0.04; }
+h1 { margin: 0 0 6px; font-size: 13px; line-height: 1.25; }
+.sub { color: var(--muted); font-size: 10.5px; line-height: 1.42; margin-bottom: 10px; }
+.buttons { display: flex; flex-wrap: wrap; gap: 7px; margin: 9px 0; }
+button, select {
+  appearance: none; border: 1px solid rgba(210,225,255,0.18);
+  background: rgba(255,255,255,0.065); color: var(--text); border-radius: 10px;
+  padding: 7px 9px; font: inherit; font-size: 10.5px; cursor: pointer;
+}
+button:hover, select:hover { background: rgba(255,255,255,0.11); }
+.row { display: grid; grid-template-columns: 96px 1fr; gap: 8px; align-items: center; margin: 7px 0; color: var(--muted); font-size: 10.5px; }
+select { width: 100%; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 10px; }
+.stat { border: 1px solid rgba(210,225,255,0.13); background: rgba(255,255,255,0.035); border-radius: 11px; padding: 7px 8px; min-height: 43px; }
+.stat b { display: block; color: var(--muted); font-size: 9.5px; font-weight: 500; margin-bottom: 4px; }
+.stat span { font-size: 12px; letter-spacing: -0.02em; }
+.warning { margin-top: 7px; color: var(--warn); font-size: 9.8px; line-height: 1.35; border: 1px solid rgba(255,229,161,0.18); background: rgba(255,229,161,0.055); border-radius: 10px; padding: 7px 8px; }
+.quality-override { margin-top: 10px; }
+#log { margin-top: 9px; border-top: 1px solid rgba(210,225,255,0.12); padding-top: 8px; color: rgba(225,235,255,0.72); font-size: 10px; line-height: 1.35; white-space: pre-wrap; }
+#corner { position: fixed; right: 12px; bottom: 10px; color: rgba(225,235,255,0.60); background: rgba(0,0,0,0.36); border: 1px solid rgba(255,255,255,0.08); padding: 7px 9px; border-radius: 10px; font-size: 9.5px; white-space: pre; pointer-events: none; }
+#mouseReticle { position: fixed; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(168,255,203,0.9); box-shadow: 0 0 0 1px rgba(0,0,0,0.35), 0 0 18px rgba(168,255,203,0.38); transform: translate(-50%, -50%); pointer-events: none; z-index: 8; }
+#mouseReticle::before, #mouseReticle::after { content: ""; position: absolute; background: rgba(168,255,203,0.9); left: 50%; top: 50%; transform: translate(-50%, -50%); }
+#mouseReticle::before { width: 42px; height: 1px; }
+#mouseReticle::after { width: 1px; height: 42px; }
+#mouseReticle.hidden { display: none; }
+.reset-row { margin-top: 8px; }
+#probeFrame { position: fixed; right: 16px; top: 16px; width: min(28vw, 330px); height: min(28vw, 330px); border-radius: 14px; border: 1px solid rgba(220,235,255,0.18); box-shadow: 0 18px 50px rgba(0,0,0,0.38); pointer-events: none; overflow: hidden; background: rgba(4,8,18,0.08); transition: opacity 150ms ease, transform 150ms ease; }
+#probeFrame.hidden { opacity: 0; transform: scale(0.96); }
+#probeLabel { position: absolute; left: 10px; top: 8px; padding: 4px 7px; border-radius: 999px; font-size: 9.5px; color: rgba(240,246,255,0.84); background: rgba(0,0,0,0.34); border: 1px solid rgba(255,255,255,0.08); }
+.good { color: var(--good); } .warn { color: var(--warn); } .bad { color: var(--bad); }

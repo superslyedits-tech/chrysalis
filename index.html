@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chrysalis Vault — Zero Matrix Lab</title>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <canvas id="view"></canvas>
+  <div id="mouseReticle" class="hidden"></div>
+  <div id="probeFrame" class="hidden"><div id="probeLabel">descent probe</div></div>
+  <div id="panel">
+    <h1>Chrysalis Vault — Zero Matrix Lab</h1>
+    <div class="sub">
+      v0.5.17: stable zero-state macro field plus sparse Projective Subspace Lattice, lazy child atlas, no-child render fast path, OKLCH/OKLab phase-bounce witness, Chiral hologram phase-lock view, fixed-step/no-readPixels stability, smooth-branch diagnostics disabled, and Quality 4 foveated/void witness optimization.
+    </div>
+    <div class="buttons">
+      <button id="pauseBtn">Pause</button>
+      <button id="descentProbeBtn">Descent Probe Mode</button>
+      <button id="resetZoomBtn">Reset Zoom Tiles + Center</button>
+      <button id="hideBtn">Hide UI H</button>
+    </div>
+    <div class="row">
+      <label for="viewMode">view</label>
+      <select id="viewMode">
+        <option value="0">adaptive anatomy</option>
+        <option value="1">pressure debt</option>
+        <option value="2">negative ocean</option>
+        <option value="3">coherence witness</option>
+        <option value="4">hidden 4D axis</option>
+        <option value="5">support atlas</option>
+        <option value="6">Lenia energy</option>
+        <option value="7">OKLCH bump crystal</option>
+        <option value="8">Chiral hologram</option>
+      </select>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>engine</b><span id="engineStat">booting</span></div>
+      <div class="stat"><b>matrix</b><span id="matrixStat">zero</span></div>
+      <div class="stat"><b>tick / time</b><span id="tickStat">0 / 0.0s</span></div>
+      <div class="stat"><b>energy</b><span id="energyStat">diagnostics off</span></div>
+      <div class="stat"><b>coherence</b><span id="coherenceStat">diagnostics off</span></div>
+      <div class="stat"><b>focus</b><span id="focusStat">0.500, 0.500</span></div>
+      <div class="stat"><b>descent</b><span id="descentStat">main ×1.0 / probe ×14.4</span></div>
+      <div class="stat"><b>quality</b><span id="qualityStat">quality 2</span></div>
+      <div class="stat"><b>atlas</b><span id="atlasStat">support memory</span></div>
+      <div class="stat"><b>subspace</b><span id="subspaceStat">0/16 chunks</span></div>
+    </div>
+    <div class="row quality-override">
+      <label for="qualityOverride">quality override</label>
+      <select id="qualityOverride">
+        <option value="0">Quality 1 for next reset</option>
+        <option value="1" selected>Quality 2 for next reset</option>
+        <option value="2">Quality 3 for next reset</option>
+        <option value="3">Quality 4 (3x3) for next reset</option>
+      </select>
+    </div>
+    <div class="buttons reset-row">
+      <button id="resetBtn">Reset</button>
+    </div>
+    <div class="warning">Quality cannot be changed mid-run. The dropdown sets the quality for the next reset only. Changing quality can affect sim generation patterns. Use at your own risk.</div>
+    <div id="log">Controls: wheel = visual zoom only · Descent Probe Mode arms reticle + zoom panel · click while armed commits 5-tile descent patch · V view · Z reset zoom tiles · Space pause · R reset at selected quality · H hide. OKLCH and Chiral hologram use render-only phase-bounce lighting.</div>
+  </div>
+  <div id="corner"></div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
